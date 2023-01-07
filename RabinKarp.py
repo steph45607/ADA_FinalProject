@@ -43,7 +43,12 @@ def search(pat, txt, q):
 
 			# if p == t and pat[0...M-1] = txt[i, i+1, ...i+M-1]
 			if j == M:
-				print("Pattern found at index " + str(i))
+				# print("Pattern found at index " + str(i))
+				print(type(i))
+				if i == None:
+					return "none"
+				else:
+					return i
 
 		# Calculate hash value for next window of text: Remove
 		# leading digit, add trailing digit
@@ -58,13 +63,14 @@ def search(pat, txt, q):
 
 # Driver Code
 if __name__ == '__main__':
-	txt = "GEEKS FOR GEEKS"
+	txt = "GEKS FOR GEKS"
 	pat = "GEEK"
 
 	# A prime number
 	q = 101
 
 	# Function Call
-	search(pat, txt, q)
+	x = search(pat, txt, q)
+	print("Pattern found at index "+ x)
 
 # This code is contributed by Bhavya Jain

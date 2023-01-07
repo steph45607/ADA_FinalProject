@@ -83,3 +83,5 @@ print("\nTime: ", end-start, " seconds")
 print("\nText : " + "\n" + txt)
 print("\nPattern : " + pat)
 print("======================================================")
+
+#this code is inspired by Atul Kumar

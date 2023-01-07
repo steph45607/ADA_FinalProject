@@ -68,14 +68,13 @@ def search(pat, txt):
 start = time.time()
 tracemalloc.start()
 
-# Driver's Code
-if __name__ == '__main__':
 
-	txt ="pRiVeT"
-	pat = "privet"
+txt ="pRiVeT"
+pat = "privet"
 
-    # Function call
-	search(pat, txt)
+start = time.time()
+tracemalloc.start()
+search(pat, txt)
 
 end = time.time()
 memory = tracemalloc.get_traced_memory()

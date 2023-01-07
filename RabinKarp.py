@@ -1,76 +1,44 @@
-# Following program is the python implementation of
-# Rabin Karp Algorithm given in CLRS book
-
-# d is the number of characters in the input alphabet
-d = 256
-
-# pat -> pattern
-# txt -> text
-# q -> A prime number
+# Rabin-Karp algorithm in python
 
 
-def search(pat, txt, q):
-	M = len(pat)
-	N = len(txt)
-	i = 0
-	j = 0
-	p = 0 # hash value for pattern
-	t = 0 # hash value for txt
-	h = 1
+d = 10
 
-	# The value of h would be "pow(d, M-1)%q"
-	for i in range(M-1):
-		h = (h*d) % q
+def search(pattern, text, q):
+    m = len(pattern)
+    n = len(text)
+    p = 0
+    t = 0
+    h = 1
+    i = 0
+    j = 0
 
-	# Calculate the hash value of pattern and first window
-	# of text
-	for i in range(M):
-		p = (d*p + ord(pat[i])) % q
-		t = (d*t + ord(txt[i])) % q
+    for i in range(m-1):
+        h = (h*d) % q
 
-	# Slide the pattern over text one by one
-	for i in range(N-M+1):
-		# Check the hash values of current window of text and
-		# pattern if the hash values match then only check
-		# for characters one by one
-		if p == t:
-			# Check for characters one by one
-			for j in range(M):
-				if txt[i+j] != pat[j]:
-					break
-				else:
-					j += 1
+    # Calculate hash value for pattern and text
+    for i in range(m):
+        p = (d*p + ord(pattern[i])) % q
+        t = (d*t + ord(text[i])) % q
 
-			# if p == t and pat[0...M-1] = txt[i, i+1, ...i+M-1]
-			if j == M:
-				# print("Pattern found at index " + str(i))
-				print(type(i))
-				if i == None:
-					return "none"
-				else:
-					return i
+    # Find the match
+    for i in range(n-m+1):
+        if p == t:
+            for j in range(m):
+                if text[i+j] != pattern[j]:
+                    break
 
-		# Calculate hash value for next window of text: Remove
-		# leading digit, add trailing digit
-		if i < N-M:
-			t = (d*(t-ord(txt[i])*h) + ord(txt[i+M])) % q
+            j += 1
+            if j == m:
+                print("Pattern is found at position: " + str(i+1))
 
-			# We might get negative values of t, converting it to
-			# positive
-			if t < 0:
-				t = t+q
+        if i < n-m:
+            t = (d*(t-ord(text[i])*h) + ord(text[i+m])) % q
+
+            if t < 0:
+                t = t+q
 
 
-# Driver Code
-if __name__ == '__main__':
-	txt = "GEKS FOR GEKS"
-	pat = "GEEK"
-
-	# A prime number
-	q = 101
-
-	# Function Call
-	x = search(pat, txt, q)
-	print("Pattern found at index "+ x)
-
-# This code is contributed by Bhavya Jain
+text = "ABCCDDAEFG"
+pattern = "CDD"
+q = 13
+search(pattern, text, q)

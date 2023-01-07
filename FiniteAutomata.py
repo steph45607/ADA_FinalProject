@@ -65,10 +65,6 @@ def search(pat, txt):
 				format(i-patLength+1)) 
 	print("Search Finished")			#once done with all the search, it will print this statement
 
-start = time.time()
-tracemalloc.start()
-
-
 txt ="pRiVeT"
 pat = "privet"
 

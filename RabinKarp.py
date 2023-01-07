@@ -3,7 +3,7 @@ import tracemalloc
 import time
 
 # change this to how many possible inputs
-d = 10
+d = 94
 
 def search(pattern, text, q):
     m = len(pattern)
@@ -41,10 +41,12 @@ def search(pattern, text, q):
 		
 
 # CHANGE HERE, ALSO CHANGE d VALUE ON LINE 6
-text = "ABCCDDAEFG"
-pattern = "CDDE"
+# d value is the possible inputs, if numberical 10, if lowercase alphabet 26, if combined lower and upper 52
+text = "AAA"
+print(len(text))
+pattern = "a"
 # CHANGE THIS TO the next prime number from the length of text
-q = 13
+q = 907
 
 tracemalloc.start()
 start = time.time()

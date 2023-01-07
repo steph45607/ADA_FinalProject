@@ -1,3 +1,6 @@
+import tracemalloc
+import time
+
 def createAux(W):
     aux = [0] * len(W)
 
@@ -54,5 +57,13 @@ def finPattern(pat, txt):
 
 pat = "んに"
 txt = "こんにちはこんにちは私の名前はディボです"
+tracemalloc.start()
+start = time.time()
+x = finPattern(pat, txt)
+end = time.time()
+memory = tracemalloc.get_traced_memory()
+tracemalloc.stop()
+tracemalloc.clear_traces()
 
-finPattern(pat, txt)
+print("time: " + str(end-start))
+print("memory: " + str(memory[1]))

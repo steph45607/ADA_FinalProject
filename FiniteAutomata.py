@@ -5,7 +5,7 @@ import time #to track run time
 import tracemalloc #to track memory usage
 
 # charNo is the number of characters in the input alphabet
-charNo = 10000000
+charNo = 256
 
 # pat -> pattern we want to search
 # txt -> text test case

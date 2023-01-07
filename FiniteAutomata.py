@@ -4,10 +4,8 @@
 import time #to track run time
 import tracemalloc #to track memory usage
 
-start = time.time()
-
 # charNo is the number of characters in the input alphabet
-charNo = 256
+charNo = 10000000
 
 # pat -> pattern we want to search
 # txt -> text test case
@@ -67,20 +65,25 @@ def search(pat, txt):
 				format(i-patLength+1)) 
 	print("Search Finished")			#once done with all the search, it will print this statement
 
+start = time.time()
 tracemalloc.start()
+
 # Driver's Code
 if __name__ == '__main__':
-	txt = "abc123 4efg56 hi78 lmn90o p 11 12q rst13 14uv15 w16s 17y18 znow19 you2021 kn22ow23 m 2425y abc1 26nex27t t28ime w29ont y30ou  s31ing32 33wi34th 3me5 \n36twin3kl7e l38it3tle9 s4ta0rs up a41bove 42th43e 44 wor45ld so h46igh47 l48ike a49 diam50ond 51in52 t53he 54sk5y5 \nwe56 5wis7h58 yo59u60 a61 mer62ry ch63rist64mas65 a66nd67 a68 ha69pp70y ne71w7 2ye7374ar75"
-	pat = "ac1"
+
+	txt ="pRiVeT"
+	pat = "privet"
 
     # Function call
 	search(pat, txt)
+
 end = time.time()
-
-
-print("\nMemory (current, peak): ", tracemalloc.get_traced_memory())
+memory = tracemalloc.get_traced_memory()
 tracemalloc.stop()
+tracemalloc.clear_traces()
 
+print("======================================================")
+print("\nMemory (current, peak): ", memory)
 print("\nTime: ", end-start, " seconds")
 print("\nText : " + "\n" + txt)
 print("\nPattern : " + pat)

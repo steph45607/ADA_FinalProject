@@ -1,6 +1,7 @@
 # Python3 program for Naive Pattern
 # Searching algorithm
-
+import tracemalloc
+import time
 
 def search(pat, txt):
     M = len(pat)
@@ -18,16 +19,27 @@ def search(pat, txt):
             j += 1
 
         if (j == M):
-            print("Pattern found at index ", i)
+            return i
 
 
 # Driver's Code
-if __name__ == '__main__':
-    txt = "AABAACAADAABAAABAA"
-    pat = "AABA"
+txt = "AABAACAADAABAAABAA"
+pat = "AABCA"
 
-    # Function call
-    search(pat, txt)
+tracemalloc.start()
+start = time.time()
+x = search(pat, txt)
+end = time.time()
+memory = tracemalloc.get_traced_memory()
+tracemalloc.stop()
+tracemalloc.clear_traces()
+
+print("time: " + str(end-start))
+print("memory: " + str(memory[1]))
+if x == None:
+	print("Not found")
+else:
+	print("Found at index: " + str(x))
 
 # This code is contributed
 # by PrinciRaj1992

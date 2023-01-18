@@ -9,28 +9,17 @@ String combination
 5. Letters with symbols
 6. Number with symbols
 7. Number, Letters, Symbols
-8. Foreign Alphabet ? (kanji, vietnamese \<accent>, etc)
-
-Length
-1. one word
-2. one sentence
-3. one paragraph
-4. two paragraph
-5. three paragraph
 
 Possible matches:
 1. one match
 2. multiple matches
-3. 0.5 match
-4. no match
+3. no match
 
 Number of characters:
-- 5
 - 10
-- 50
 - 100
-- 150
-- 200
-- 500
 - 1000
-- ...
+- 10000
+- 100000
+- 1000000
+the matching pattern are the last 6 digits

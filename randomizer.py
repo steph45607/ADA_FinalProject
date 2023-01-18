@@ -1,5 +1,6 @@
 from random import randint, choices, shuffle
 from string import ascii_lowercase, ascii_uppercase, digits, ascii_letters, punctuation
+import pandas as pd
 
 def randomNumber(n):
     start = 10**(n-1)
@@ -46,4 +47,10 @@ def randomNumberPunctLetters(n):
 # print(randomStringUpper(10))
 # print(randomStringUpLow(10))
 # print(randomNumberPunct(300))
-print(randomNumberPunctLetters(300))
+# print(randomNumberPunctLetters(300))
+x = randomNumber(1000000)
+x = str(x)
+
+file = open("1000000.txt", "w")
+file.write(x)
+file.close()
